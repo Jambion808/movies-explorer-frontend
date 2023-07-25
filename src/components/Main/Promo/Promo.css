@@ -1,0 +1,50 @@
+.promo{
+    /* width: 100%; */
+    background-color: #073042;
+
+    margin: 0;
+    min-height: 524px;
+}
+
+
+.promo__header{
+    font-size: 50px;
+    line-height: 58px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0 auto;
+    padding: 184px 275px 0;
+    letter-spacing: -1.6px;
+}
+
+.promo__image{
+    position: absolute;
+    top: 315px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width:900px) {
+    .promo__image{
+        top: 460px;
+    }
+
+    .promo__header{
+        padding: 326px 19px 0;
+      
+    }
+}
+
+@media screen and (max-width:500px) {
+    .promo__image{
+        width: 248px;
+        height: 248px;
+        top: 340px;
+    }
+
+    .promo__header{
+        padding: 207px 10px 0;
+        font-size: 31px;
+        line-height: 39px;
+    }
+}

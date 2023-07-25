@@ -1,0 +1,24 @@
+.movies__card-button{
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 36px;
+    cursor: pointer;
+    background: #F5F5F5 url(../../../../images/none-like-icon.svg) center no-repeat; 
+    padding: 0;
+}
+
+.movies__card-button:hover{
+    opacity: 0.8;
+}
+
+.movies__card-button_like{
+    background: #F5F5F5 url(../../../../images/like-card-icon.svg) center no-repeat; 
+    border-radius: 36px;
+}
+
+.movies__card-button_delete{
+    background: #F5F5F5 url(../../../../images/delete-card-icon.svg) center no-repeat; 
+    border-radius: 36px; 
+}
+

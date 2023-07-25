@@ -1,0 +1,17 @@
+.saved__container{
+    margin-left:70px;
+    margin-right: 70px;
+    margin-bottom: 230px;
+}
+
+@media screen and (max-width:900px) {
+    .saved__container{
+        margin:0 30px 764px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .saved__container{
+        margin:0 10px 140px;
+    }
+}

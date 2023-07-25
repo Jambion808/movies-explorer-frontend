@@ -1,0 +1,161 @@
+.login{
+    width: 396px;
+    display: flex;
+    flex-direction: column;
+    margin: 70px auto;
+}
+
+.login__logo-box{
+    width: 38px;
+    height: 38px;
+}
+
+.login__header{
+    margin: 40px 0;
+    color: #000;
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 500;
+}
+
+.login__form{
+    margin-bottom: 179px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login__input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login__input-relevance{
+    color: #A0A0A0;
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: 400;
+}
+
+.login__input{
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 400;
+    color: #000000;
+    border: none;
+    background-color: #F9F9F9;
+    height: 46px;
+    border-radius: 8px;
+    outline: none;
+    padding: 0 0 0 15px;
+}
+
+.login__input-error{
+    color: #FF3055;
+}
+
+.login__error{
+    color: #FF3055;
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: 400;
+    display: none;
+}
+
+.login__error-visible{
+    display: block;
+}
+
+.login__button{
+    height: 45px;
+    border: none;
+    background-color: #3456F3;
+    color: #FFFFFF;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 500;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+
+.login__error-unvisible{
+    background-color: #F5F5F5;
+    color: #000;
+    cursor: auto;
+}
+
+.login__signup{
+    display: flex; 
+    justify-content: center;
+    gap: 6px;
+}
+
+.login__signup-quest{
+    margin: 0;
+    color: #A0A0A0;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 400;
+}
+
+.login__signup-link{
+    margin: 0;
+    color: #3456F3;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.login__signup-link:hover{
+    opacity: 0.7;
+}
+
+.login__button:hover{
+    opacity: 0.8;
+}
+
+@media screen and (max-width:900px) {
+    .login{
+        margin: 232px auto;
+    }
+
+    .login__form{
+        width: 369px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .login{
+        margin: 56px 30px;
+        align-items: center;
+    }
+
+    .login__header{
+        margin: 50px auto 80px;
+    }
+
+    .login__form{
+        width: 260px;
+        margin-bottom: 267px;
+    }
+
+    .login__button{
+        min-width: 260px;
+        font-size: 12px;
+        line-height: 15px;
+        margin-bottom: 14px;
+    }
+
+    .login__signup-quest{
+        font-size: 12px;
+        line-height: 15px;
+    }
+    
+    .login__signup-link{
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
