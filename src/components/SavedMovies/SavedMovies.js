@@ -5,7 +5,7 @@ import { SearchForm }   from "../Movies/SearchForm/SearchForm";
 
 export function SavedMovies() {
     return (
-        <section className='saved__container'>
+        <section className='saved-container'>
             <SearchForm/>
             <MovieCardList movieList={savedMovieList} />
         </section>

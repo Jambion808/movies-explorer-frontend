@@ -6,7 +6,7 @@ export function AboutProject() {
     <section className="about-project" id="about-project">
       <div className="about-project__conteiner">
         <h2 className="about-project__title">О проекте</h2>
-        <div className="about-project_content">
+        <div className="about-project__content">
           <div className="about-project__info">
             <h3 className="about-project__info-title">
               Дипломный проект включал 5 этапов
@@ -27,16 +27,16 @@ export function AboutProject() {
           </div>
         </div>
         <div className="about-project__timing">
-          <p className="about-project__timing-graph about-project__graph_back-time">
+          <p className="about-project__graph about-project__graph_back-time">
             1 неделя
           </p>
-          <p className="about-project__timing-graph about-project__graph_front-time">
+          <p className="about-project__graph about-project__graph_front-time">
             4 недели
           </p>
-          <p className="about-project__timing-graph about-project__graph_back">
+          <p className="about-project__graph about-project__graph_back">
             Back-end
           </p>
-          <p className="about-project__timing-graph about-project__graph_front">
+          <p className="about-project__graph about-project__graph_front">
             Front-end
           </p>
         </div>

@@ -18,7 +18,7 @@ export function Header(props) {
   return (
     <>
       {!props.loggedIn ? (
-        <header className={pathname === "/" ? "header header__main" : "header"}>
+        <header className={pathname === "/" ? "header header-main" : "header"}>
           <NavLink to="/" className="header__logo">
             <img src={HeaderLogo} alt="Лого" />
           </NavLink>
@@ -35,11 +35,11 @@ export function Header(props) {
           </div>
         </header>
       ) : (
-        <header className={pathname === "/" ? "header header__main" : "header"}>
+        <header className={pathname === "/" ? "header header-main" : "header"}>
           <NavLink to="/" className="header__logo">
             <img src={HeaderLogoAuth} alt="Лого" /> 
           </NavLink>
-          <div className="header__container_auth">
+          <div className="header__container-auth">
             <NavLink
               className={
                 pathname === "/"

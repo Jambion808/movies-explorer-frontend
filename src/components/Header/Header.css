@@ -8,7 +8,7 @@
   margin: 0;
 }
 
-.header__main {
+.header-main {
   background-color: #073042;
 }
 
@@ -19,7 +19,7 @@
   align-items: center;
 }
 
-.header__container_auth {
+.header__container-auth {
   display: flex;
   gap: 20px;
   height: 32px;
