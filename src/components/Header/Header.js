@@ -5,7 +5,7 @@ import HeaderLogo from "../../images/main-logo-1.svg";
 // import HeaderLogoAuth from "../../images/main-logo-3.svg";
 // import LogoAccount from "../../images/account-icon.svg";
 import { useState } from "react";
-import { Navigation } from "../Navigation/Navigation";
+import { Navigation } from "./Navigation/Navigation";
 
 export function Header(props) {
   const { pathname } = useLocation();

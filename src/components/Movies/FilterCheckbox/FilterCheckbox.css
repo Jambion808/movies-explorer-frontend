@@ -52,9 +52,9 @@ input:checked + .checkbox__span:before {
   background-color: #2BE080;
 }
 
-@media screen and (max-width: 1215px) {
+@media screen and (max-width: 1230px) {
   .checkbox {
-    margin-left: 5px;
+    margin-left: 10px;
   }
 }
 

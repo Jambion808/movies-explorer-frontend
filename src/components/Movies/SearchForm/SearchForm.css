@@ -47,6 +47,12 @@
   background-color: #e8e8e8;
 }
 
+@media screen and (max-width: 1230px) {
+  .search__form {
+    width: 800px;
+  }
+}
+
 @media screen and (max-width:1200px) {
   .search {
     margin-top: 60px;
