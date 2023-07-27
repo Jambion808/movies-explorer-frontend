@@ -5,9 +5,9 @@ import { SearchForm }   from "../Movies/SearchForm/SearchForm";
 
 export function SavedMovies() {
     return (
-        <section className='saved-container'>
+        <main className='saved-container'>
             <SearchForm/>
             <MovieCardList movieList={savedMovieList} />
-        </section>
+        </main>
     )
 }

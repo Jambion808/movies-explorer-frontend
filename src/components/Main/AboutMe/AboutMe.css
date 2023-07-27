@@ -1,5 +1,5 @@
 .about-me{
-    color: #000000;
+    color: #fff;
     padding: 110px 70px 100px 70px;
 }
 
@@ -18,7 +18,7 @@
     line-height: 27px;
     font-weight: 400;
     letter-spacing: -1px;
-    border-bottom: solid 1px #000000;
+    border-bottom: solid 1px #fff;
 }
 
 .about-me__content{
@@ -49,7 +49,7 @@
     line-height: 22px;
     font-weight: 400;
     margin-bottom: 98px;
-    letter-spacing: -0.02px;
+    letter-spacing: -0.06px;
 }
 
 .about-me__link{
@@ -59,7 +59,7 @@
     line-height: 17px;
     font-weight: 500;
     cursor: pointer;
-    color: #000000;
+    color: #fff;
     width: 46px;
     letter-spacing: 0.2px;
 }
@@ -112,7 +112,7 @@
 
 @media screen and (max-width:500px) {
     .about-me{
-        padding: 70px 14px;
+        padding: 66px 14px 71px;
     }
 
     .about-me__name{

@@ -1,14 +1,19 @@
 .movies-container{
     margin-left:70px;
     margin-right: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .movies-container__more{
     margin: 50px 0 80px;
-    width: 100%;
+    width: 320px;
     height: 36px;
-    border: none;
-    background-color: #F9F9F9;
+    border: solid 1px #424242;
+    background-color: #202020;
+    color: #fff;
     border-radius: 6px;
     cursor: pointer;
     font-size: 12px;
@@ -27,11 +32,21 @@
         margin-left:30px;
         margin-right: 30px;
     }
+
+    .movies-container__more{
+        margin-top: 70px;
+
+    }
   }
 
   @media screen and (max-width:500px) {
     .movies-container{
         margin-left:10px;
         margin-right: 10px;
+    }
+
+    .movies-container__more{
+        width: 240px;
+
     }
   }

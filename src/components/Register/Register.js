@@ -13,11 +13,11 @@ export function Register(props) {
   };
 
   return (
-    <section className="register">
+    <main className="register">
       <NavLink className="register__logo-box" to='/'>
       <img className="register__logo" src={logoReg} alt="Логотип" />
       </NavLink>
-      <h2 className="register__header">Добро пожаловать!</h2>
+      <h1 className="register__header">Добро пожаловать!</h1>
       <form name="register__form" className="register__form form">
         <label className="register__input-container">
           <span className="register__input-relevance">Имя</span>
@@ -35,6 +35,7 @@ export function Register(props) {
             placeholder="Имя"
             minLength={2}
             maxLength={30}
+            autoComplete="off"
             required
           />
           <span
@@ -63,6 +64,7 @@ export function Register(props) {
             placeholder="E-mail"
             minLength={2}
             maxLength={30}
+            autoComplete="off"
             required
           />
           <span
@@ -123,6 +125,6 @@ export function Register(props) {
           Войти
         </NavLink>
       </div>
-    </section>
+    </main>
   );
 }

@@ -9,16 +9,13 @@ import { Portfolio } from "./Portfolio/Portfolio";
 
 export function Main() {
     return (
-        <div className="content">
-        {/* <Header /> */}
-        <main>
+        <main className="content">
             <Promo/>
             <AboutProject/>
             <Techs/>
             <AboutMe/>
             <Portfolio/>
         </main>
-        {/* <Footer/> */}
-        </div>
+
     )
 }

@@ -1,11 +1,11 @@
 import { NavLink, useLocation } from "react-router-dom";
 import "./Header.css";
 import React from "react";
-import HeaderLogo from "../../images/main-logo-2.svg";
-import HeaderLogoAuth from "../../images/main-logo-3.svg";
-import LogoAccount from "../../images/account-icon.svg";
+import HeaderLogo from "../../images/main-logo-1.svg";
+// import HeaderLogoAuth from "../../images/main-logo-3.svg";
+// import LogoAccount from "../../images/account-icon.svg";
 import { useState } from "react";
-import { Navigation } from "./Navigation/Navigation";
+import { Navigation } from "../Navigation/Navigation";
 
 export function Header(props) {
   const { pathname } = useLocation();
@@ -22,7 +22,7 @@ export function Header(props) {
           <NavLink to="/" className="header__logo">
             <img src={HeaderLogo} alt="Лого" />
           </NavLink>
-          <div className="header__container">
+          <nav className="header__container">
             <NavLink className="header__button" to="/sign-up">
               Регистрация
             </NavLink>
@@ -32,56 +32,33 @@ export function Header(props) {
             >
               Войти
             </NavLink>
-          </div>
+          </nav>
         </header>
       ) : (
         <header className={pathname === "/" ? "header header-main" : "header"}>
           <NavLink to="/" className="header__logo">
-            <img src={HeaderLogoAuth} alt="Лого" /> 
+            <img src={HeaderLogo} alt="Лого" />
           </NavLink>
-          <div className="header__container-auth">
-            <NavLink
-              className={
-                pathname === "/"
-                  ? "header__button_auth_white"
-                  : "header__button_auth_white header__button_auth"
-              }
-              to="/movies"
-            >
-              Фильмы
-            </NavLink>
-            <NavLink
-              className={
-                pathname === "/"
-                ? "header__button_auth_white "
-                : "header__button_auth_white header__button_auth"
-              }
-              to="/saved-movies"
-            >
-              Сохраненный фильмы
-            </NavLink>
-            <div className="header__account">
-              <NavLink
-                to="/profile"
-                className={
-                  pathname === "/"
-                    ? "header__account_button-white"
-                    : "header__account_button-white header__account_button"
-                }
-              >
+          <div className="header__navigation">
+            <nav className="header__container-auth">
+              <NavLink className="header__button-auth" to="/movies">
+                Фильмы
+              </NavLink>
+              <NavLink className="header__button-auth" to="/saved-movies">
+                Сохраненный фильмы
+              </NavLink>
+            </nav>
+            <div className={pathname === "/" ? "header__account header__account-main" : "header__account"}>
+              <NavLink to="/profile" className="header__account-button">
                 Аккаунт
               </NavLink>
-              <div className="header__account_box">
-                <img src={LogoAccount} alt="Логотип"></img>
-              </div>
-            </div>
+              {/* <div className="header__account_box">
+              <img src={LogoAccount} alt="Логотип"></img>
+            </div> */}
+            </div> {}
             <div className="header__menu">
               <button
-                className={
-                  pathname === "/"
-                    ? "header__menu-button header__menu-button_invert"
-                    : "header__menu-button "
-                }
+                className="header__menu-button"
                 onClick={handleOpenMenu}
                 type="button"
               />

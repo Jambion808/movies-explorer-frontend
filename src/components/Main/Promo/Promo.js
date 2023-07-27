@@ -1,6 +1,6 @@
 import React from "react";
 import practikumLogo from "../../../images/praktikum-logo.svg";
-import "./Promo.css";
+import './Promo.css';
 import {NavTab} from "../NavTab/NavTab";
 
 

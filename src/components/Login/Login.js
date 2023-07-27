@@ -13,11 +13,11 @@ export function Login(props) {
   }
 
   return (
-    <section className="login">
+    <main className="login">
       <NavLink className="login__logo-box" to='/'>
       <img className="login__logo" src={logoReg} alt="Логотип" />
       </NavLink>
-      <h2 className="login__header">Рады видеть!</h2>
+      <h1 className="login__header">Рады видеть!</h1>
       <form name="login__form" className="login__form form">
         <label className="login__input-container">
           <span className="login__input-relevance">E-mail</span>
@@ -35,6 +35,7 @@ export function Login(props) {
             placeholder="E-mail"
             minLength={2}
             maxLength={30}
+            autoComplete="off"
             required
           />
           <span
@@ -63,6 +64,7 @@ export function Login(props) {
             placeholder="Пароль"
             minLength={8}
             maxLength={30}
+            autoComplete="off"
             required
           />
           <span
@@ -92,6 +94,6 @@ export function Login(props) {
             <p className="login__signup-quest">Ещё не зарегистрированы?</p>
             <NavLink className='login__signup-link' to='/sign-up'>Регистрация</NavLink>
         </div>
-    </section>
+    </main>
   );
 }

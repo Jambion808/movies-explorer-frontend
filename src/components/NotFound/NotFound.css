@@ -1,9 +1,13 @@
 .notFound{
     display: flex;
-    color: #000;
+    color: #fff;
     flex-direction: column;
     align-items: center;
-    padding: 251px 440px 60px;
+    justify-content: center;
+    margin: 0 auto;
+
+    padding: 247px 0 60px;
+    /* height: 100vh; */
 }
 
 .notFound__title{
@@ -30,15 +34,20 @@
     color: #3456F3;
 }
 
+.notFound__link:hover{
+    opacity: 0.7;
+}
+
+
 @media screen and (max-width:900px) {
     .notFound{
-        padding: 408px 184px 222px;
+        padding: 408px 0 222px;
     }
 }
 
 @media screen and (max-width:500px) {
     .notFound{
-        padding: 329px 10px 30px;
+        padding: 329px 0 30px;
     }
 
     .notFound__title{
@@ -47,6 +56,7 @@
     }
 
     .notFound__subtitle{
+        margin-top: 10px;
         font-size: 12px;
         line-height: 15px;
         margin-top: 10px;

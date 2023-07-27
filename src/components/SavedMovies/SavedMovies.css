@@ -1,12 +1,16 @@
 .saved-container{
-    margin-left:70px;
+    margin-left: 70px;
     margin-right: 70px;
-    margin-bottom: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 224px;
 }
 
 @media screen and (max-width:900px) {
     .saved-container{
-        margin:0 30px 764px;
+        margin:0 30px 160px;
     }
 }
 

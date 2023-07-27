@@ -8,7 +8,6 @@
   z-index: 2;
   background-color: #0000004d;
   opacity: 0;
-  
 }
 
 .navigation-cover_visual {
@@ -19,7 +18,7 @@
 .navigation {
   width: 520px;
   height: 100vh;
-  background-color: #ffffff;
+  background-color: #202020;
   position: fixed;
   top: 0;
   right: 0;
@@ -38,56 +37,58 @@
 }
 
 .navigation__links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 28px;
-    padding: 159px 90px 0;
-    width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 159px 0;
+  width: 340px;
 }
 
 .navigation__link {
-    text-decoration: none;
-    color: #000;
-    font-size: 18px;
-    line-height: 22px;
-    font-weight: 500;
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 500;
 }
 
-.navigation__link:hover{
-    opacity: 0.7;
+.navigation__link:hover {
+  opacity: 0.7;
 }
 
-.navigation__link:active{
-border-bottom: solid 2px #000;
+.navigation__link_active {
+  border-bottom: solid 2px #fff;
 }
 
 .navigation__profile {
-    width: 100px;
-    height: 32px;
-    border-radius: 20px;
-    background-color: #F5F5F5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 90px;
+  width: 100px;
+  height: 32px;
+  border-radius: 20px;
+  background-color: #313131;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 90px;
 }
 
 .navigation__profile-link {
-    font-size: 14px;
-    line-height: 16px;
-    font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
 }
 
 .navigation__close {
-    background: #fff url(../../../images/close-burger.svg) center no-repeat; 
-    width: 22px;
-    height: 22px;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    top: 26px;
-    right: 26px;
+  background: #fff url(../../images/close-burger.svg) center no-repeat;
+  width: 22px;
+  height: 22px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 26px;
+  right: 26px;
+  background-color: #202020;
 }
 
 @media screen and (max-width: 500px) {
@@ -99,15 +100,14 @@ border-bottom: solid 2px #000;
     gap: 24px;
     padding: 144px 10px 0;
     max-width: 340px;
-}
+  }
 
-.navigation__profile {
-  margin-bottom: 54px;
-}
+  .navigation__profile {
+    margin-bottom: 54px;
+  }
 
-.navigation__close {
-  top: 18px;
-  right: 18px;
-}
-  
+  .navigation__close {
+    top: 18px;
+    right: 18px;
+  }
 }

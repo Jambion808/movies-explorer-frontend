@@ -3,8 +3,9 @@
     flex-direction: column;
     align-items: center;
     margin: 74px auto 70px;
-    max-width: 410px;
-    color: #000000;
+    width: 410px;
+    color: #fff;
+    justify-content: center
 }
 
 .profile__header{
@@ -20,14 +21,15 @@
     flex-direction: column;
     gap: 17px;
     width: 100%;
+    height: 120px;
 }
 
 .profile__input-container{
     display: grid;
-    grid-template-rows: 14px 14px;
+    grid-template-rows: 14px 16px;
     grid-template-columns: 1fr 1fr;
     border-bottom: solid 1px #E8E8E8;
-    padding-bottom: 2px;
+    /* padding-bottom: 16px; */
 
 }
 
@@ -52,8 +54,8 @@
     border: none;
     padding: 0;
     text-align: right;
-    background-color: #FFFFFF;
-    color: #000000;
+    background-color: #202020;
+    color: #fff;
     font-size: 11px;
     line-height: 13px;
     font-weight: 400;
@@ -61,7 +63,7 @@
 }
 
 .profile__input::placeholder{
-    color: #000000;
+    color: #fff;
 }
 
 .profile__input-error{
@@ -89,10 +91,10 @@
 }
 
 .profile__edit-button{
-    margin-top: 190px;
+    margin-top: 162px;
     border: none;
-    background-color: #FFFFFF;
-    color: #000000;
+    background-color: #202020;
+    color: #fff;
     font-size: 13px;
     line-height: 16px;
     font-weight: 400;
@@ -107,7 +109,7 @@
 
 .profile__exit-button{
     border: none;
-    background-color: #FFFFFF;
+    background-color: #202020;
     color: #FF004D;
     font-size: 13px;
     line-height: 16px;
@@ -126,7 +128,7 @@
 
 
 .profile__edit_update{
-    margin-top: 220px;
+    margin-top: 120px;
     min-height: 45px;
     border: none;
     background-color: #3456F3;
@@ -161,17 +163,18 @@
     }
 
     .profile__edit-button{
-        margin-top: 180px;
+        margin-top: 152px;
     }
 
     .profile__edit_update{
-        margin-top: 150px;
+        margin-top: 124px;
     }
 }
 
 @media screen and (max-width:500px) {
     .profile{
         margin-top: 70px;
+        width: 260px;
     }
 
     .profile__header{
@@ -183,7 +186,7 @@
     }
 
     .profile__edit-button{
-        margin-top: 348px;
+        margin-top: 321px;
         font-size: 12px;
         line-height: 15px;
     }

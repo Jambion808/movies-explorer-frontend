@@ -17,8 +17,8 @@ export function Profile(props) {
   };
 
   return (
-    <section className="profile">
-      <h2 className="profile__header">Привет, {props.name}!</h2>
+    <main className="profile">
+      <h1 className="profile__header">Привет, {props.name}!</h1>
       <form name="profile__form" className="profile__form form">
         <label className="profile__input-container">
           <span className="profile__input-relevance">Имя</span>
@@ -37,6 +37,7 @@ export function Profile(props) {
             placeholder={props.name}
             minLength={2}
             maxLength={30}
+            autoComplete="off"
             required
           />
           <span
@@ -62,10 +63,11 @@ export function Profile(props) {
             disabled={!isEditProfile}
             name="email"
             id="email"
-            type="text"
+            type="email"
             placeholder={props.email}
             minLength={2}
             maxLength={30}
+            autoComplete="off"
             required
           />
           <span
@@ -75,10 +77,13 @@ export function Profile(props) {
                 : "profile__error"
             }
           >
-            {errors.email}
+            {/* {errors.email} */}
+            Неккоректный email
           </span>
         </label>
-        <div className="profile__edit">
+        
+      </form>
+      <div className="profile__edit">
           {isEditProfile ? (
             <button
               className={
@@ -110,7 +115,6 @@ export function Profile(props) {
             Выйти из аккаунта
           </button>
         </div>
-      </form>
-    </section>
+    </main>
   );
 }

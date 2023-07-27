@@ -27,16 +27,16 @@ export function AboutProject() {
           </div>
         </div>
         <div className="about-project__timing">
-          <p className="about-project__graph about-project__graph_back-time">
+          <p className="about-project__graph about-project__graph_green">
             1 неделя
           </p>
-          <p className="about-project__graph about-project__graph_front-time">
+          <p className="about-project__graph about-project__graph_gray">
             4 недели
           </p>
-          <p className="about-project__graph about-project__graph_back">
+          <p className="about-project__graph about-project__graph_title-first">
             Back-end
           </p>
-          <p className="about-project__graph about-project__graph_front">
+          <p className="about-project__graph about-project__graph_title-other">
             Front-end
           </p>
         </div>

@@ -29,6 +29,7 @@ export function SearchForm() {
           placeholder="Фильм"
           minLength={2}
           maxLength={30}
+          autoComplete="off"
           required
         />
         <button

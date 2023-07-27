@@ -4,9 +4,9 @@ export function Footer() {
   return (
     <footer className="footer">
       <div className="footer__text-container">
-        <p className="footer__text">
+        <h2 className="footer__text">
           Учебный проект Яндекс.Практикум х BeatFilm.
-        </p>
+        </h2>
       </div>
       <div className="footer__data-container">
         <p className="footer__author">&copy;&nbsp;Костя Зеленин</p>

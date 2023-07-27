@@ -1,5 +1,5 @@
 .about-project {
-  color: #000000;
+  color: #FFFFFF;
 }
 
 .about-project__conteiner {
@@ -13,7 +13,7 @@
   line-height: 27px;
   font-weight: 400;
   letter-spacing: -1px;
-  border-bottom: solid 1px #000000;
+  border-bottom: solid 1px #fff;
 }
 
 .about-project__content {
@@ -35,7 +35,7 @@
   font-size: 20px;
   line-height: 24px;
   font-weight: 400;
-  letter-spacing: -1px;
+  letter-spacing: -0.8px;
 }
 
 .about-project__info-about {
@@ -62,7 +62,7 @@
   color: #000000;
 }
 
-.about-project__graph_back-time {
+.about-project__graph_green {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,17 +72,18 @@
   height: 36px;
 }
 
-.about-project__graph_front-time {
+.about-project__graph_gray {
   display: flex;
   align-items: center;
   justify-content: center;
   grid-row: 4 / 5;
   grid-column: 2 / 6;
-  background-color: #f2f2f2;
+  background-color: #303030;
   height: 36px;
+  color: #FFFFFF;
 }
 
-.about-project__graph_back {
+.about-project__graph_title-first {
   grid-row: 5 / 6;
   grid-column: 1 / 2;
   margin-top: 14px;
@@ -90,7 +91,7 @@
   font-weight: 500;
 }
 
-.about-project__graph_front {
+.about-project__graph_title-other {
   grid-row: 5 / 6;
   grid-column: 2 / 6;
   margin-top: 14px;
@@ -104,7 +105,7 @@
   }
 
   .about-project__content {
-    gap: 30px;
+    gap: 38px;
   }
 
   .about-project__info-about {
@@ -123,11 +124,12 @@
 }
 
 @media screen and (max-width: 500px) {
-  .about-project_content {
+  .about-project__content {
     display: flex;
     flex-direction: column;
     gap: 56px;
     margin-top: 60px;
+
   }
 
   .about-project__conteiner {
@@ -148,11 +150,13 @@
   .about-project__info-title {
     font-size: 18px;
     line-height: 22px;
+    letter-spacing: -1px;
   }
 
   .about-project__info-about {
     font-size: 11px;
     line-height: 16px;
+    letter-spacing: -0.04px;
   }
 
   .about-project__timing {
@@ -165,25 +169,25 @@
     line-height: 13px;
   }
 
-  .about-project__graph_back-time {
+  .about-project__graph_green {
     grid-row: 1 / 2;
     grid-column: 1 / 2;
     height: 35px;
   }
 
-  .about-project__graph_front-time {
+  .about-project__graph_gray {
     grid-row: 1 / 2;
     grid-column: 2 / 4;
     height: 35px;
   }
 
-  .about-project__graph_back {
+  .about-project__graph_title-first {
     grid-row: 2 / 3;
     grid-column: 1 / 2;
     margin-top: 10px;
   }
 
-  .about-project__graph_front {
+  .about-project__graph_title-other {
     grid-row: 2 / 3;
     grid-column: 2 / 6;
     margin-top: 10px;

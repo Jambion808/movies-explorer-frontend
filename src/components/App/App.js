@@ -13,7 +13,7 @@ import { Header } from "../Header/Header";
 
 function App() {
   const navigation = useNavigate();
-  const [loggedIn, setLoggedIn] = useState();
+  const [loggedIn, setLoggedIn] = useState(false);
 
   function handleRegistration() {
     navigation("/sign-in", { replace: true });

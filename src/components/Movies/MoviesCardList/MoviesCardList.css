@@ -1,5 +1,5 @@
 .movies{
-    margin-top: 78px;
+    margin-top: 64px;
     margin-bottom: 10px;
 }
 
@@ -8,33 +8,33 @@
 .movies__list{
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 38px 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px 28px;
     margin: 0;
     padding: 0;
 }
 
-@media screen and (max-width:900px) {
+@media screen and (max-width:1200px) {
     .movies__list{
         grid-template-columns: repeat(2, 1fr);
-        gap: 30px 30px;
+        gap: 36px 30px;
     }
 
     .movies{
-        margin-top: 78px;
+        margin-top: 68px;
         margin-bottom: 10px;
     }
     
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:750px) {
     .movies__list{
         grid-template-columns: repeat(1, 1fr);
-        gap: 33px 30px;
+        gap: 16px 30px;
     }
 
     .movies{
-        margin-top: 49px;
+        margin-top: 38px;
         margin-bottom: 10px;
     }
     

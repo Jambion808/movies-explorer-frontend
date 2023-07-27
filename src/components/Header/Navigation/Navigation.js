@@ -1,7 +1,10 @@
 import "./Navigation.css";
 import { NavLink } from "react-router-dom";
 
+
+
 export function Navigation(props) {
+  
   return (
     <div
       className={`navigation-cover ${
