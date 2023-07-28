@@ -1,8 +1,11 @@
 .register {
   width: 396px;
   display: flex;
-  flex-direction: column; 
-  margin: 70px auto;
+  flex-direction: column;
+  justify-content: center;
+  max-height: 100vh;
+  margin: auto;
+  
 }
 
 .register__logo-box {
@@ -19,7 +22,7 @@
 }
 
 .register__form {
-  height: 266px;
+  /* height: 266px; */
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -133,9 +136,9 @@
 }
 
 @media screen and (max-width: 900px) {
-  .register {
+  /* .register {
     margin: 232px auto;
-  }
+  } */
 
 
   /* .register__form {
@@ -146,8 +149,8 @@
 @media screen and (max-width: 500px) {
   .register {
     /* margin: 56px 30px; */
-    padding: 56px 0 30px;
-    margin: 0 auto;
+    /* padding: 56px 0 30px; */
+    margin:auto;
     align-items: center;
     width: 260px;
   }
@@ -158,6 +161,7 @@
 
   .register__form {
     width: 260px;
+    /* height: 200px; */
   }
 
   .register__button {
