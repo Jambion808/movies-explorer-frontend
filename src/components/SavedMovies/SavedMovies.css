@@ -1,0 +1,21 @@
+.saved-container{
+    margin-left: 70px;
+    margin-right: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 224px;
+}
+
+@media screen and (max-width:900px) {
+    .saved-container{
+        margin:0 30px 160px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .saved-container{
+        margin:0 10px 140px;
+    }
+}

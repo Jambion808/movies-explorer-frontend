@@ -1,2 +1,1 @@
-# movies-explorer-frontend
-movies-explorer-frontend
+## Инструкция   -  https://disk.yandex.ru/d/yo-O42ldurQoMA
