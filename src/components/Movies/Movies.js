@@ -22,20 +22,20 @@ import {
 // function savedMovies
 
 export function Movies(props) {
-  const [isShownMovies, setIsShownMovies] = useState([]);
-  const [isBasicMovies, setIsBasicMovies] = useState(0);
-  const [isExtraMovies, setIsExtraMovies] = useState(0);
-  const [isQuantityFilms, setIsQuantityFilms] = useState(0); 
   const [isLoading, setIsLoading] = useState(false);
-  const [isLastFilms, setIsLastFilms] = useState("");
-  const [isBuildMovie, setIsBuildMovie] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-  const [isShorts, setIsShorts] = useState(false);
+  const [isQuantityFilms, setIsQuantityFilms] = useState(0); 
   let entireFilmList = localStorage.getItem("entirefilmlist");
   const allDataList = localStorage.getItem("alldatalist");
   let filtrateMovies = JSON.parse(allDataList)?.filtrateMovies || [];
   let shortsFiltrateMovies = JSON.parse(allDataList)?.shortsFiltrateMovies || [];
+  const [isShorts, setIsShorts] = useState(false);
+  const [isBuildMovie, setIsBuildMovie] = useState(false);
+  const [isShownMovies, setIsShownMovies] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isLastFilms, setIsLastFilms] = useState("");
   const widthBrowser = useWidthBrowser();
+  const [isBasicMovies, setIsBasicMovies] = useState(0);
+  const [isExtraMovies, setIsExtraMovies] = useState(0);
   const moviesCount = isBasicMovies + isExtraMovies * isQuantityFilms;
 
 
@@ -59,19 +59,20 @@ export function Movies(props) {
         setIsLoading(true);
         setIsQuantityFilms(0);
         if (!entireFilmList) {
+          entireFilmList = localStorage.getItem("entirefilmlist");
           const allFilmsFinding = await MoviesApi.getMovies();
           localStorage.setItem("entirefilmlist", JSON.stringify(allFilmsFinding));
-          entireFilmList = localStorage.getItem("entirefilmlist");
+          
         }
-
-        filtrateMovies = searchMoviesName(JSON.parse(entireFilmList), film);
-        shortsFiltrateMovies = searchMoviesDuration(filtrateMovies);
         const allDataList = {
           filtrateMovies,
           shortsFiltrateMovies,
           film,
           isShorts,
         };
+        filtrateMovies = searchMoviesName(JSON.parse(entireFilmList), film);
+        shortsFiltrateMovies = searchMoviesDuration(filtrateMovies);
+
         localStorage.setItem("alldatalist", JSON.stringify(allDataList));
 
         if (isShorts) {
