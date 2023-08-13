@@ -23,23 +23,49 @@ import {
 
 export function Movies(props) {
   const [isLoading, setIsLoading] = useState(false);
-  const [isQuantityFilms, setIsQuantityFilms] = useState(0); 
+  const [isShorts, setIsShorts] = useState(false);
+  const [isShownMovies, setIsShownMovies] = useState([]);
+  const [isBuildMovie, setIsBuildMovie] = useState(false);
   let entireFilmList = localStorage.getItem("entirefilmlist");
   const allDataList = localStorage.getItem("alldatalist");
   let filtrateMovies = JSON.parse(allDataList)?.filtrateMovies || [];
   let shortsFiltrateMovies = JSON.parse(allDataList)?.shortsFiltrateMovies || [];
-  const [isShorts, setIsShorts] = useState(false);
-  const [isBuildMovie, setIsBuildMovie] = useState(false);
-  const [isShownMovies, setIsShownMovies] = useState([]);
-  const [errorMessage, setErrorMessage] = useState("");
   const [isLastFilms, setIsLastFilms] = useState("");
-  const widthBrowser = useWidthBrowser();
+  const [isQuantityFilms, setIsQuantityFilms] = useState(0); 
   const [isBasicMovies, setIsBasicMovies] = useState(0);
   const [isExtraMovies, setIsExtraMovies] = useState(0);
+  const [errorMessage, setErrorMessage] = useState("");
+  const widthBrowser = useWidthBrowser();
   const moviesCount = isBasicMovies + isExtraMovies * isQuantityFilms;
 
+ 
+  useEffect(() => {
+    if (allDataList) {
+      setIsLastFilms(JSON.parse(allDataList)?.film);
+      setIsShorts(JSON.parse(allDataList)?.isShorts);
+    }
+  }, []);
 
-   // function handleGetMovies() {
+  useEffect(() => {
+    if (!errorMessage) {
+      setIsBuildMovie(true);
+      isShorts
+        ? setIsShownMovies(shortsFiltrateMovies.slice(0, moviesCount))
+        : setIsShownMovies(filtrateMovies.slice(0, moviesCount));
+    }
+  }, [isShorts, moviesCount, errorMessage]);
+
+  useEffect(() => {
+    if (allDataList) {
+      const upgradeAllData = JSON.parse(allDataList);
+      upgradeAllData.isShorts = isShorts;
+      localStorage.setItem("alldatalist", JSON.stringify(upgradeAllData));
+    }
+  }, [isShorts, allDataList]);
+
+
+
+    // function handleGetMovies() {
     //   setIsLoading(true)
     //   return MoviesApi.getMovies()
     //   .then((res) => {
@@ -59,10 +85,9 @@ export function Movies(props) {
         setIsLoading(true);
         setIsQuantityFilms(0);
         if (!entireFilmList) {
-          entireFilmList = localStorage.getItem("entirefilmlist");
           const allFilmsFinding = await MoviesApi.getMovies();
           localStorage.setItem("entirefilmlist", JSON.stringify(allFilmsFinding));
-          
+          entireFilmList = localStorage.getItem("entirefilmlist");
         }
         const allDataList = {
           filtrateMovies,
@@ -102,30 +127,7 @@ export function Movies(props) {
     }
   }
 
- 
-  useEffect(() => {
-    if (allDataList) {
-      setIsLastFilms(JSON.parse(allDataList)?.film);
-      setIsShorts(JSON.parse(allDataList)?.isShorts);
-    }
-  }, []);
 
-  useEffect(() => {
-    if (!errorMessage) {
-      setIsBuildMovie(true);
-      isShorts
-        ? setIsShownMovies(shortsFiltrateMovies.slice(0, moviesCount))
-        : setIsShownMovies(filtrateMovies.slice(0, moviesCount));
-    }
-  }, [isShorts, moviesCount, errorMessage]);
-
-  useEffect(() => {
-    if (allDataList) {
-      const upgradeAllData = JSON.parse(allDataList);
-      upgradeAllData.isShorts = isShorts;
-      localStorage.setItem("alldatalist", JSON.stringify(upgradeAllData));
-    }
-  }, [isShorts, allDataList]);
 
   function saveMovies(data, protectBinder) {
     MainApi.savedMovies(data)
@@ -145,9 +147,6 @@ export function Movies(props) {
   // }
 
 
-  function deleteFilmsStorage() {
-    localStorage.removeItem("entirefilmlist");
-  }
 
   useEffect(() => {
     window.addEventListener("beforeunload", deleteFilmsStorage);
@@ -155,6 +154,24 @@ export function Movies(props) {
       window.removeEventListener("beforeunload", deleteFilmsStorage);
     };
   }, []);
+
+  
+  useEffect(() => {
+    if (widthBrowser >= tabletWidth) {
+      setIsBasicMovies(desktopCards);
+      setIsExtraMovies(addMaxCards);
+    } else if (widthBrowser > mobileWidth && widthBrowser < tabletWidth) {
+      setIsBasicMovies(tabletCards);
+      setIsExtraMovies(addMinCards);
+    } else if (widthBrowser <= mobileWidth) {
+      setIsBasicMovies(mobileCards);
+      setIsExtraMovies(addMinCards);
+    }
+  }, [widthBrowser]);
+
+  function deleteFilmsStorage() {
+    localStorage.removeItem("entirefilmlist");
+  }
 
   function handleDeleteMovies(movieId, protectBinder) {
     const currentMovie = props.isSavedMovies.find(
@@ -170,19 +187,6 @@ export function Movies(props) {
       .catch((err) => console.log(err));
   }
 
-  useEffect(() => {
-    if (widthBrowser >= tabletWidth) {
-      setIsBasicMovies(desktopCards);
-      setIsExtraMovies(addMaxCards);
-    } else if (widthBrowser > mobileWidth && widthBrowser < tabletWidth) {
-      setIsBasicMovies(tabletCards);
-      setIsExtraMovies(addMinCards);
-    } else if (widthBrowser <= mobileWidth) {
-      setIsBasicMovies(mobileCards);
-      setIsExtraMovies(addMinCards);
-    }
-  }, [widthBrowser]);
-
   function moreContent() {
     setIsQuantityFilms((count) => count + 1);
   }
@@ -193,8 +197,8 @@ export function Movies(props) {
         isLoading={isLoading}
         isShorts={isShorts}
         setIsShorts={setIsShorts}
-        handleGetMovies={handleGetMovies}
         isLastFilms={isLastFilms}
+        handleGetMovies={handleGetMovies}
         isInfoNotifyOpen={props.isInfoNotifyOpen}
         isMassage={props.isMassage}
         closeMessage={props.closeMessage}
@@ -204,11 +208,11 @@ export function Movies(props) {
       ) : isBuildMovie ? (
         <>
           <MovieCardList
-          movieList={isShownMovies}
-          saveMovies={saveMovies}
+          isSavedMovies={props.isSavedMovies}
             deleteMovies={handleDeleteMovies}
-            handleSaveMovies={props.handleSaveMovies}
-            isSavedMovies={props.isSavedMovies}
+            saveMovies={saveMovies}
+            movieList={isShownMovies}
+            // handleSaveMovies={props.handleSaveMovies}
             placeWithSavedData={false}
           />
           <button
@@ -221,6 +225,7 @@ export function Movies(props) {
                   "movies-container__unvisible"
             }`}
             onClick={moreContent}
+            
           >
             Еще
           </button>
