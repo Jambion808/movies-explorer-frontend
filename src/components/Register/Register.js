@@ -2,20 +2,21 @@ import { useForm } from "../hook/FormValidation";
 import "./Register.css";
 import { NavLink } from "react-router-dom";
 import logoReg from "../../images/main-logo-1.svg";
+import { InfoNotify } from "../InfoNotify/infoNotify";
 
 export function Register(props) {
-  const { values, errors, isValid, handleChange, resetForm } = useForm({});
+  const { values, errors, isValid, handleChange } = useForm({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.handleRegistration();
-    resetForm();
+    props.handleRegistration(values.name, values.email, values.password);
+    // resetForm();
   };
 
   return (
     <main className="register">
-      <NavLink className="register__logo-box" to='/'>
-      <img className="register__logo" src={logoReg} alt="Логотип" />
+      <NavLink className="register__logo-box" to="/">
+        <img className="register__logo" src={logoReg} alt="Логотип" />
       </NavLink>
       <h1 className="register__header">Добро пожаловать!</h1>
       <form name="register__form" className="register__form form">
@@ -36,6 +37,7 @@ export function Register(props) {
             minLength={2}
             maxLength={30}
             autoComplete="off"
+            pattern="^(?!\s)[A-Za-zА-Яа-я\-\s]+$"
             required
           />
           <span
@@ -65,6 +67,7 @@ export function Register(props) {
             minLength={2}
             maxLength={30}
             autoComplete="off"
+            pattern="^([^ ]+@[^ ]+\.[a-z]{2,6}|)$"
             required
           />
           <span
@@ -93,6 +96,7 @@ export function Register(props) {
             placeholder="Пароль"
             minLength={8}
             maxLength={30}
+            // pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,30}$"
             required
           />
           <span
@@ -102,11 +106,25 @@ export function Register(props) {
                 : "register__error"
             }
           >
-            {/* {errors.password} */}
-            Что то пошло не так...
+            {errors.password}
+            {/* Что то пошло не так... */}
           </span>
         </label>
       </form>
+      {/* <span
+              className={
+                !isValid 
+                  ? "register__buttom-message register__buttom-message_unvisible"
+                  : "register__buttom-message"
+              }
+            >
+              Введите новые данные.
+            </span> */}
+      <InfoNotify
+        isInfoNotifyOpen={props.isInfoNotifyOpen}
+        isMassage={props.isMassage}
+        closeMessage={props.closeMessage}
+      />
       <button
         disabled={!isValid}
         className={

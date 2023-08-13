@@ -1,24 +1,32 @@
 import { useForm } from "../hook/FormValidation";
 import "./Profile.css";
-import { useState } from "react";
+import React, { useState, useContext } from "react";
+import { CurrentUserContext } from "../../context/CurrentUserContext";
+import { InfoNotify } from "../InfoNotify/infoNotify";
 
 export function Profile(props) {
-  const { values, errors, isValid, handleChange, resetForm } = useForm({});
+  const { values, errors, isValid, handleChange } = useForm({});
   const [isEditProfile, setIsEditProfile] = useState(false);
+  const currentUser = useContext(CurrentUserContext);
+  // console.log('Profile', currentUser)
 
   function handleEditProfile() {
     setIsEditProfile(!isEditProfile);
+    values.name = currentUser.name;
+    values.email = currentUser.email;
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleEditProfile();
-    resetForm();
+    setIsEditProfile(!isEditProfile);
+    props.handleSubmitProfile(values.name, values.email);
+    // handleEditProfile();
+    // resetForm();
   };
 
   return (
     <main className="profile">
-      <h1 className="profile__header">Привет, {props.name}!</h1>
+      <h1 className="profile__header">Привет, {currentUser.name}!</h1>
       <form name="profile__form" className="profile__form form">
         <label className="profile__input-container">
           <span className="profile__input-relevance">Имя</span>
@@ -34,7 +42,7 @@ export function Profile(props) {
             name="name"
             id="name"
             type="text"
-            placeholder={props.name}
+            placeholder={currentUser.name}
             minLength={2}
             maxLength={30}
             autoComplete="off"
@@ -47,7 +55,8 @@ export function Profile(props) {
                 : "profile__error"
             }
           >
-            {errors.name}
+            {/* {errors.name} */}
+            Неккоректное имя
           </span>
         </label>
         <label className="profile__input-container">
@@ -64,7 +73,7 @@ export function Profile(props) {
             name="email"
             id="email"
             type="email"
-            placeholder={props.email}
+            placeholder={currentUser.email}
             minLength={2}
             maxLength={30}
             autoComplete="off"
@@ -81,40 +90,69 @@ export function Profile(props) {
             Неккоректный email
           </span>
         </label>
-        
       </form>
       <div className="profile__edit">
-          {isEditProfile ? (
+        <InfoNotify
+          isInfoNotifyOpen={props.isInfoNotifyOpen}
+          isMassage={props.isMassage}
+          closeMessage={props.closeMessage}
+        />
+        {isEditProfile ? (
+          <>
+            {/* <span
+              className={
+                // !isValid ||
+                // (values.name === currentUser.name &&
+                //   values.email === currentUser.email)
+                !isValid 
+                // ||
+                // (values.name !== currentUser.name &&
+                //   values.email !== currentUser.email)
+                  ? "profile__buttom-message "
+                  : "profile__buttom-message profile__buttom-message_unvisible"
+              }
+            >
+              Введите новые данные.
+            </span> */}
+
             <button
               className={
-                isValid
-                  ? "profile__edit_update"
-                  : "profile__edit_update  profile__edit_disable"
+                !isValid ||
+                (values.name === currentUser.name &&
+                  values.email === currentUser.email)
+                  ? "profile__edit_update profile__edit_disable"
+                  : "profile__edit_update  "
               }
-              disabled={!isValid}
+              disabled={
+                !isValid ||
+                (values.name === currentUser.name &&
+                  values.email === currentUser.email) ||
+                props.isPreloader
+              }
               form="profile__form"
               onClick={handleSubmit}
               type="submit"
             >
               Сохранить
             </button>
-          ) : (
-            <button
-              className="profile__edit-button"
-              onClick={handleEditProfile}
-              type="button"
-            >
-              Редактировать
-            </button>
-          )}
+          </>
+        ) : (
           <button
-            className="profile__exit-button"
+            className="profile__edit-button"
+            onClick={handleEditProfile}
             type="button"
-            onClick={props.handleLogout}
           >
-            Выйти из аккаунта
+            Редактировать
           </button>
-        </div>
+        )}
+        <button
+          className="profile__exit-button"
+          type="button"
+          onClick={props.handleLogout}
+        >
+          Выйти из аккаунта
+        </button>
+      </div>
     </main>
   );
 }

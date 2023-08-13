@@ -5,6 +5,7 @@
   min-height: 100vh;
   margin: auto;
   justify-content: center;
+
 }
 
 .login__logo-box {
@@ -25,6 +26,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  padding-bottom: 69px;
 }
 
 .login__input-container {
@@ -83,7 +85,8 @@
   font-weight: 500;
   border-radius: 3px;
   cursor: pointer;
-  margin: 69px 0 18px;
+  /* margin: 69px 0 18px; */
+  margin-bottom: 18px;
   padding: 0;
 }
 
@@ -144,6 +147,7 @@
 
   .login__form {
     width: 260px;
+    padding-bottom: 157px;
     /* height: 200px; */
   }
 
@@ -152,7 +156,7 @@
     font-size: 12px;
     line-height: 15px;
     margin-bottom: 14px;
-    margin-top: 157px;
+    /* margin-top: 157px; */
   }
 
   .login__signup-quest {

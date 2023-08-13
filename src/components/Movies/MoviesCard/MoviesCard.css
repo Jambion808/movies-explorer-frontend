@@ -32,6 +32,9 @@
   line-height: 18px;
   font-weight: 500;
   color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .movies__duration {
