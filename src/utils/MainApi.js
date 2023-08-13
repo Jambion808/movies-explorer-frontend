@@ -1,4 +1,4 @@
-export const BASE_URL = "https://pickof.nomoreparties.sbs/";
+export const BASE_URL = "https://pickof.nomoreparties.sbs";
 // export const BASE_URL = "http://localhost:3000";
 
 
