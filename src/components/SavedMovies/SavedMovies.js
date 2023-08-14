@@ -7,21 +7,25 @@ import { searchMoviesName, searchMoviesDuration } from "../../utils/findByName";
 import * as MainApi from "../../utils/MainApi";
 
 export function SavedMovies(props) {
-  
   const [isShorts, setIsShorts] = useState(false);
   // console.log(isShorts)
-  const [isContentOfSavedMovies, setIsContentOfSavedMovies] = useState(
+  const [isSearch, setIsSearch] = useState('');
+  const [andisContentOfSavedMovies, setIsContentOfSavedMovies] = useState(
     props.isSavedMovies
+    // searchMoviesName(props.isSavedMovies, isSearch)
   );
+  const isContentOfSavedMovies = searchMoviesName(andisContentOfSavedMovies, isSearch)
   const [isBuild, setIsBuild] = useState(false);
   const [isErrorMessage, setIsErrorMessage] = useState("");
+  
 
   useEffect(() => {
     setIsContentOfSavedMovies(props.isSavedMovies);
     setIsBuild(true);
   }, [props.isSavedMovies]);
 
-  function handleGetMovies(film, isShorts) {  
+  function handleGetMovies(film, isShorts) {
+    setIsSearch(film)
     const filtrateMovies = searchMoviesName(props.isSavedMovies, film);
     const shortsFiltrateMovies = searchMoviesDuration(filtrateMovies);
 
@@ -42,6 +46,20 @@ export function SavedMovies(props) {
     }
   }
 
+  // function handleDeleteMovie(movieId, protectBinder) {
+  //   MainApi.deleteMovies(movieId)
+  //     .then(() => {
+  //       protectBinder(false);
+  //       props.setIsSavedMovies((state) =>
+  //         state.filter((data) => data._id !== movieId)
+  //       );
+  //       setIsContentOfSavedMovies((state) =>
+  //         state.filter((data) => data._id !== movieId)
+  //       );
+  //     })
+  //     .catch((err) => console.log(err));
+  // }
+
   function handleDeleteMovie(movieId, protectBinder) {
     MainApi.deleteMovies(movieId)
       .then(() => {
@@ -49,17 +67,19 @@ export function SavedMovies(props) {
         props.setIsSavedMovies((state) =>
           state.filter((data) => data._id !== movieId)
         );
-        setIsContentOfSavedMovies((state) =>
-          state.filter((data) => data._id !== movieId)
-        );
+        //     //   setIsContentOfSavedMovies((state) =>
+        //     //     state.filter((data) => data._id !== movieId)
+        //     //   );
+        //     // })
       })
       .catch((err) => console.log(err));
+    // console.log((isContentOfSavedMovies.filter((data) => data._id !== movieId)))
   }
 
   return (
     <main className="saved-container">
       <SearchForm
-        isLoading={props.isLoading}
+        // isLoading={props.isLoading}
         handleGetMovies={handleGetMovies}
         isShorts={isShorts}
         setIsShorts={setIsShorts}
@@ -72,12 +92,17 @@ export function SavedMovies(props) {
           <MovieCardList
             isSavedMovies={props.isSavedMovies}
             deleteMovies={handleDeleteMovie}
-            movieList={isShorts?searchMoviesDuration(isContentOfSavedMovies): isContentOfSavedMovies}
+            movieList={
+              isShorts
+                ? searchMoviesDuration(isContentOfSavedMovies)
+                : isContentOfSavedMovies
+            }
             placeWithSavedData={true}
           />
         </>
       ) : (
-        <><h2 className="saved-container__error">{isErrorMessage}</h2>
+        <>
+          <h2 className="saved-container__error">{isErrorMessage}</h2>
         </>
       )}
       <MovieCardList />

@@ -31,7 +31,7 @@ export function MoviesCard(props) {
 
   const deleteMovieHandle = () => {
     props.deleteMovies(props.card.id || props.card._id, setIsLikeCard);
-    // console.log("Фильм удален");
+    console.log("Фильм удален");
   };
 
   const saveMovieHandle = () => {
