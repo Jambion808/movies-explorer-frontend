@@ -9,13 +9,13 @@ import * as MainApi from "../../utils/MainApi";
 import { useWidthBrowser } from "../hook/WidthDisplay";
 import { searchMoviesName, searchMoviesDuration } from "../../utils/findByName";
 import {
-  tabletWidth,
-  mobileWidth,
-  desktopCards,
-  tabletCards,
-  mobileCards,
-  addMaxCards,
-  addMinCards,
+  TABLET_WIDTH,
+  MOBILE_WIDTH,
+  DESKTOP_CARDS,
+  TABLET_CARDS,
+  MOBILE_CARDS,
+  ADD_MAX_CARDS,
+  ADD_MIN_CARDS,
   // BEATFILM_URL,
 } from "../../constants/constants";
 
@@ -89,15 +89,15 @@ export function Movies(props) {
           localStorage.setItem("entirefilmlist", JSON.stringify(allFilmsFinding));
           entireFilmList = localStorage.getItem("entirefilmlist");
         }
+
+        filtrateMovies = searchMoviesName(JSON.parse(entireFilmList), film);
+        shortsFiltrateMovies = searchMoviesDuration(filtrateMovies);
         const allDataList = {
           filtrateMovies,
           shortsFiltrateMovies,
           film,
           isShorts,
         };
-        filtrateMovies = searchMoviesName(JSON.parse(entireFilmList), film);
-        shortsFiltrateMovies = searchMoviesDuration(filtrateMovies);
-
         localStorage.setItem("alldatalist", JSON.stringify(allDataList));
 
         if (isShorts) {
@@ -157,15 +157,15 @@ export function Movies(props) {
 
   
   useEffect(() => {
-    if (widthBrowser >= tabletWidth) {
-      setIsBasicMovies(desktopCards);
-      setIsExtraMovies(addMaxCards);
-    } else if (widthBrowser > mobileWidth && widthBrowser < tabletWidth) {
-      setIsBasicMovies(tabletCards);
-      setIsExtraMovies(addMinCards);
-    } else if (widthBrowser <= mobileWidth) {
-      setIsBasicMovies(mobileCards);
-      setIsExtraMovies(addMinCards);
+    if (widthBrowser >= TABLET_WIDTH) {
+      setIsBasicMovies(DESKTOP_CARDS);
+      setIsExtraMovies(ADD_MAX_CARDS);
+    } else if (widthBrowser > MOBILE_WIDTH && widthBrowser < TABLET_WIDTH) {
+      setIsBasicMovies(TABLET_CARDS);
+      setIsExtraMovies(ADD_MIN_CARDS);
+    } else if (widthBrowser <= MOBILE_WIDTH) {
+      setIsBasicMovies(MOBILE_CARDS);
+      setIsExtraMovies(ADD_MIN_CARDS);
     }
   }, [widthBrowser]);
 

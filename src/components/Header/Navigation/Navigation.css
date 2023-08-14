@@ -59,7 +59,12 @@
 }
 
 .navigation__link_active {
-  border-bottom: solid 2px #fff;
+  border-bottom: solid 1px #fff;
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 500;
 }
 
 .navigation__profile {
@@ -100,6 +105,10 @@
     gap: 24px;
     padding: 144px 10px 0;
     max-width: 340px;
+  }
+
+  .navigation__link_active {
+    border-bottom: solid 1px #fff;
   }
 
   .navigation__profile {

@@ -80,13 +80,13 @@ export function Login(props) {
       </form>
       <InfoNotify isInfoNotifyOpen={props.isInfoNotifyOpen} isMassage={props.isMassage} closeMessage={props.closeMessage}/>
       <button
-        disabled={!isValid}
+      onClick={handleSubmit}
+        disabled={!isValid && props.isPreloader}
         className={
           isValid
             ? "login__button"
             : "login__button  login__error-unvisible"
         }
-        onClick={handleSubmit}
         type="submit"
       >
         Войти

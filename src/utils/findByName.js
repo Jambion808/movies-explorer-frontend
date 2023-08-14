@@ -1,3 +1,5 @@
+import {SHORTS_MOVIE_DURATION} from "../constants/constants";
+
 export function searchMoviesName(movies, name) {
   if(name) {
     return movies.filter((data) => {
@@ -11,5 +13,5 @@ export function searchMoviesName(movies, name) {
   }
   
   export function searchMoviesDuration(movies) {
-    return movies.filter((data) => data.duration <= 40);
+    return movies.filter((data) => data.duration <= SHORTS_MOVIE_DURATION);
   }

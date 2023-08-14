@@ -1,10 +1,7 @@
 import "./Navigation.css";
 import { NavLink } from "react-router-dom";
 
-
-
 export function Navigation(props) {
-  
   return (
     <div
       className={`navigation-cover ${
@@ -17,18 +14,42 @@ export function Navigation(props) {
         }`}
       >
         <nav className="navigation__links">
-          <NavLink className="navigation__link" to="/">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive
+                ? "navigation__link navigation__link_active"
+                : "navigation__link"
+            }
+          >
             Главная
           </NavLink>
-          <NavLink className="navigation__link" to="/movies">
+          <NavLink
+            to="/movies"
+            className={({ isActive }) =>
+              isActive
+                ? "navigation__link navigation__link_active"
+                : "navigation__link"
+            }
+          >
             Фильмы
           </NavLink>
-          <NavLink className="navigation__link" to="/saved-movies">
+          <NavLink
+            to="/saved-movies"
+            className={({ isActive }) =>
+              isActive
+                ? "navigation__link navigation__link_active"
+                : "navigation__link"
+            }
+          >
             Сохранённые фильмы
           </NavLink>
         </nav>
         <div className="navigation__profile">
-          <NavLink className="navigation__profile-link navigation__link" to="/profile">
+          <NavLink
+            className="navigation__profile-link navigation__link"
+            to="/profile"
+          >
             Аккаунт
           </NavLink>
         </div>

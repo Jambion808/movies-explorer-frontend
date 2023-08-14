@@ -248,6 +248,7 @@ function App() {
                 isInfoNotifyOpen={isInfoNotifyOpen}
                 isMassage={isMassage}
                 closeMessage={closeMessage}
+                isPreloader={isPreloader}
               />
             }
           />
@@ -259,6 +260,7 @@ function App() {
                 isInfoNotifyOpen={isInfoNotifyOpen}
                 isMassage={isMassage}
                 closeMessage={closeMessage}
+                isPreloader={isPreloader}
               />
             }
           />

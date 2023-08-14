@@ -9,6 +9,8 @@
   /* flex: 1; */
 }
 
+
+
 .header-main {
   background-color: #073042;
 }
@@ -47,6 +49,19 @@
   font-size: 12px;
   line-height: 16px;
   font-weight: 500;
+  cursor: pointer;
+  height: 32px;
+  align-items: center;
+}
+
+.header__button-auth_active{
+  border-bottom: 1px solid #fff;
+  display: flex;
+  text-decoration: none;
+  color: #fff;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
   cursor: pointer;
   height: 32px;
   align-items: center;

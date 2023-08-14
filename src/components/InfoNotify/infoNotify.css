@@ -15,6 +15,17 @@
     font-size: 11px;
     line-height: 13px;
     font-weight: 400;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
     margin: 0;
+}
+
+.info-notify__button{
+    border: 0;
+    font-size: 11px;
+    line-height: 13px;
+    font-weight: 400;
+    color: #fff;
+    background-color: #3456f3;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }

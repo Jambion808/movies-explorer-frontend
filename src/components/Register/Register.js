@@ -5,12 +5,12 @@ import logoReg from "../../images/main-logo-1.svg";
 import { InfoNotify } from "../InfoNotify/infoNotify";
 
 export function Register(props) {
-  const { values, errors, isValid, handleChange } = useForm({});
+  const { values, errors, isValid, handleChange, resetForm} = useForm({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
     props.handleRegistration(values.name, values.email, values.password);
-    // resetForm();
+    resetForm();
   };
 
   return (
@@ -126,13 +126,13 @@ export function Register(props) {
         closeMessage={props.closeMessage}
       />
       <button
-        disabled={!isValid}
+      onClick={handleSubmit}
+        disabled={!isValid && props.isPreloader}
         className={
           isValid
             ? "register__button"
             : "register__button  register__error-unvisible"
         }
-        onClick={handleSubmit}
         type="submit"
       >
         Зарегистрироваться

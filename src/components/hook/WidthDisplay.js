@@ -1,8 +1,8 @@
 import { useLayoutEffect, useState } from "react"
-import { tabletWidth } from "../../constants/constants";
+import { TABLET_WIDTH } from "../../constants/constants";
 
 export const useWidthBrowser = () => {
-    const [width, setWidth] = useState(tabletWidth);
+    const [width, setWidth] = useState(TABLET_WIDTH);
     useLayoutEffect(() => {
         function handleWidth() {
             setWidth(window.innerWidth);

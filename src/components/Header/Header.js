@@ -41,21 +41,43 @@ export function Header(props) {
           </NavLink>
           <div className="header__navigation">
             <nav className="header__container-auth">
-              <NavLink className="header__button-auth" to="/movies">
+              <NavLink
+                // className="header__button-auth"
+                to="/movies"
+                className={({ isActive }) =>
+                  isActive
+                    ? "header__button-auth header__button-auth_active"
+                    : "header__button-auth"
+                }
+              >
                 Фильмы
               </NavLink>
-              <NavLink className="header__button-auth" to="/saved-movies">
+              <NavLink
+                to="/saved-movies"
+                className={({ isActive }) =>
+                  isActive
+                    ? "header__button-auth header__button-auth_active"
+                    : "header__button-auth"
+                }
+              >
                 Сохраненный фильмы
               </NavLink>
             </nav>
-            <div className={pathname === "/" ? "header__account header__account-main" : "header__account"}>
+            <div
+              className={
+                pathname === "/"
+                  ? "header__account header__account-main"
+                  : "header__account"
+              }
+            >
               <NavLink to="/profile" className="header__account-button">
                 Аккаунт
               </NavLink>
               {/* <div className="header__account_box">
               <img src={LogoAccount} alt="Логотип"></img>
             </div> */}
-            </div> {}
+            </div>{" "}
+            {}
             <div className="header__menu">
               <button
                 className="header__menu-button"
