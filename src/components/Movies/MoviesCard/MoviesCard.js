@@ -90,7 +90,7 @@ export function MoviesCard(props) {
       >
         {pathname === "/movies" && !isLikeCard ? "Сохранить" : null}
         {pathname === "/movies" && isLikeCard ? "✔" : null}
-        {pathname === "/movies" ? null : "🞪"}
+        {pathname === "/movies" ? null : "x"}
       </MoviesCardButton>
     </li>
   );
