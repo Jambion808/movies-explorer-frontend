@@ -1,5 +1,6 @@
-export const TABLET_WIDTH = 1000;
-export const MOBILE_WIDTH = 500;
+export const TABLET_WIDTH = 1201;
+//1201
+export const MOBILE_WIDTH = 750;
 export const DESKTOP_CARDS = 12;
 export const TABLET_CARDS= 8;
 export const MOBILE_CARDS= 5;

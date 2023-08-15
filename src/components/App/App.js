@@ -34,6 +34,11 @@ function App() {
   const [isSavedMovies, setIsSavedMovies] = useState([]);
 
   useEffect(() => {
+    setIsMassage('')
+    setIsInfoNotifyOpen(false)
+  },[pathname])
+
+  useEffect(() => {
     handleTokenCheck();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
