@@ -16,6 +16,11 @@
 
 @media screen and (max-width:1200px) {
     .movies__list{
+        gap: 25px 10px;
+    }}
+
+@media screen and (max-width:768px) {
+    .movies__list{
         grid-template-columns: repeat(2, 1fr);
         gap: 36px 30px;
     }
@@ -27,7 +32,13 @@
     
 }
 
-@media screen and (max-width:750px) {
+@media screen and (max-width:730px) {
+    .movies__list{
+        gap: 36px 20px;
+    }  
+}
+
+@media screen and (max-width:480px) {
     .movies__list{
         grid-template-columns: repeat(1, 1fr);
         gap: 16px 30px;
