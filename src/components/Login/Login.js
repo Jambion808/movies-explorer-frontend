@@ -2,14 +2,14 @@ import { useForm } from "../hook/FormValidation";
 import "./Login.css";
 import { NavLink } from "react-router-dom";
 import logoReg from "../../images/main-logo-1.svg";
+import { InfoNotify } from "../InfoNotify/infoNotify";
 
 export function Login(props) {
-  const { values, errors, isValid, handleChange, resetForm } = useForm({});
+  const { values, errors, isValid, handleChange, } = useForm({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.handleLogin();
-    resetForm();
+    props.handleLogin(values.email, values.password);
   }
 
   return (
@@ -78,14 +78,15 @@ export function Login(props) {
           </span>
         </label>
       </form>
+      <InfoNotify isInfoNotifyOpen={props.isInfoNotifyOpen} isMassage={props.isMassage} closeMessage={props.closeMessage}/>
       <button
-        disabled={!isValid}
+      onClick={handleSubmit}
+        disabled={!isValid && props.isPreloader}
         className={
           isValid
             ? "login__button"
             : "login__button  login__error-unvisible"
         }
-        onClick={handleSubmit}
         type="submit"
       >
         Войти

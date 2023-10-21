@@ -29,7 +29,7 @@
 }
 
 .movies__card-button_delete{
-    background: #F5F5F5 url(../../../../images/delete-card-icon.svg) center no-repeat; 
+    /* background: #F5F5F5 url(../../../../images/delete-card-icon.svg) center no-repeat;  */
     border-radius: 36px; 
     background-color: #313131;
 }

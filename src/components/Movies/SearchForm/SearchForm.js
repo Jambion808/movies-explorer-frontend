@@ -1,22 +1,32 @@
 import "./SearchForm.css";
 import { useForm } from "../../hook/FormValidation";
-import { useState } from "react";
+import { useEffect, 
+  // useState 
+} from "react";
 import { FilterCheckbox } from "../FilterCheckbox/FilterCheckbox";
+import { InfoNotify } from "../../InfoNotify/infoNotify";
 
-export function SearchForm() {
-  const { values, isValid, handleChange, resetForm } = useForm({});
-  const [isShort, setIsShort] = useState(false);
+export function SearchForm(props) {
+  const { values, setValues, handleChange, isValid} = useForm({});
+  // const [isShorts, setIsShorts] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    resetForm();
+    props.handleGetMovies(values.film, props.isShorts)
   };
 
   function handleShort() {
-      setIsShort(!isShort);
+    props.setIsShorts(!props.isShorts);
   }
 
+  useEffect(() => {
+    if(props.isLastFilms){
+      setValues({'film' : props.isLastFilms, ...values})
+    }
+  },[props.isLastFilms, setValues])
+
   return (
+    <>
     <section className="search">
       <form className="search__form form">
         <input
@@ -25,15 +35,15 @@ export function SearchForm() {
           onChange={handleChange}
           name="film"
           id="film"
-          type="film"
+          type="text"
           placeholder="Фильм"
-          minLength={2}
+          minLength={1}
           maxLength={30}
           autoComplete="off"
           required
         />
         <button
-          disabled={!isValid}
+          disabled={props.isLoading}
           className={
             isValid
               ? "search__button"
@@ -43,7 +53,9 @@ export function SearchForm() {
           type="submit"
         />
       </form>
-      <FilterCheckbox isCheck={isShort} checkHandler={handleShort}/>
+      <FilterCheckbox isCheck={props.isShorts} checkHandler={handleShort}/>
     </section>
+    <InfoNotify isInfoNotifyOpen={props.isInfoNotifyOpen} isMassage={props.isMassage} closeMessage={props.closeMessage}/>
+    </>
   );
 }

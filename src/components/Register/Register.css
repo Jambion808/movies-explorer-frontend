@@ -26,12 +26,28 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  padding-bottom: 69px;
 }
 
 .register__input-container {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+
+.register__buttom-message{
+  color: #fff;
+  font-size: 11px;
+  line-height: 13px;
+  font-weight: 400;
+  padding-bottom: 20px;
+  text-align: center;
+  display: none;
+}
+
+.register__buttom-message_unvisible{
+  display: block;
+  
 }
 
 /* .register__input-container:last-child{
@@ -94,8 +110,9 @@
   font-weight: 500;
   border-radius: 3px;
   cursor: pointer;
-  margin: 69px 0 18px;
+  /* margin: 69px 0 18px; */ 
   padding: 0;
+  margin-bottom: 18px;
 }
 
 .register__error-unvisible {
@@ -169,8 +186,13 @@
     font-size: 12px;
     line-height: 15px;
     margin-bottom: 14px;
-    margin-top: 157px;
+    /* margin-top: 157px; */
+  }
 
+
+
+  .register__form {
+    padding-bottom: 157px;
   }
 
   .register__signin-quest {

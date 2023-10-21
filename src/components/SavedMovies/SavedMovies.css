@@ -8,6 +8,14 @@
     margin-bottom: 224px;
 }
 
+.saved-container__error{
+    font-size: 22px;
+    line-height: 27px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+}
+
 @media screen and (max-width:900px) {
     .saved-container{
         margin:0 30px 160px;

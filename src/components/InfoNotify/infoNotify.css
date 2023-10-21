@@ -1,0 +1,32 @@
+.info-notify{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.info-notify__unvisible{
+    display: none;
+}
+
+.info-notify__text{
+    color: #fff;
+    font-size: 11px;
+    line-height: 13px;
+    font-weight: 400;
+    padding-bottom: 5px;
+    margin: 0;
+}
+
+.info-notify__button{
+    border: 0;
+    font-size: 11px;
+    line-height: 13px;
+    font-weight: 400;
+    color: #fff;
+    background-color: #3456f3;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: 50px;
+}
